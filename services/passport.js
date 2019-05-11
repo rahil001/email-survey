@@ -35,21 +35,3 @@ passport.use(new GoogleStrategy({
         }
     });
 }));
-
-passport.use(new FacebookStrategy({
-    clientID: keys.facebookClientId,
-    clientSecret: keys.facebookClientSecret,
-    callbackURL: '/auth/facebook/callback'
-}, (accessToken, refreshToken , profile, done) => {
-    Users.findOne({ facebookId: profile.id }).then((user) => {
-        if (!user) {
-            new Users({
-                facebookId: profile.id
-            })
-            .save()
-            .then((usr) => done(null, usr));
-        } else {
-            done(null, user);
-        }
-    });
-}));
