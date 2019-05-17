@@ -22,16 +22,13 @@ passport.use(new GoogleStrategy({
     clientID: keys.googleClientID,
     clientSecret: keys.googleClientSecret,
     callbackURL: '/auth/google/callback'
-}, (accessToken, refreshToken , profile, done) => {
-    Users.findOne({ googleId: profile.id }).then((user) => {
+}, async (accessToken, refreshToken , profile, done) => {
+    const user = await Users.findOne({ googleId: profile.id });
         if (!user) {
-            new Users({
-                googleId: profile.id
-            })
-            .save()
-            .then((usr) => done(null, usr));
+            const usr = await new Users({ googleId: profile.id }).save();
+            done(null, usr);
         } else {
             done(null, user);
         }
-    });
-}));
+    }
+));
