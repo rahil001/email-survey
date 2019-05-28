@@ -6,5 +6,8 @@ module.exports = {
     facebookClientId: 2097411737038024,
     facebookClientSecret: '443cfcb587f1976eaef87d31ef41947b',
     stripePublishableKey: 'pk_test_S6niyxfmhObOi5RGC4b7a1RX00g2dWyiXT',
-    stripeSecretKey: 'sk_test_yvaW8tExKimhxwM5yUjO7RU500csuORhpa'
+    stripeSecretKey: 'sk_test_yvaW8tExKimhxwM5yUjO7RU500csuORhpa',
+    sendGridKey: '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',
+    redirectDomain: 'http://localhost:3000'
 };
+
