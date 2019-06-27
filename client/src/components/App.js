@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -8,7 +8,7 @@ import Landing from './Landing';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
 
-class App extends Component {
+class App extends React.Component {
 
     componentDidMount() {
         this.props.getUserDetails();
@@ -18,9 +18,9 @@ class App extends Component {
             <div className="container">
                 <BrowserRouter>
                     <Header auth={this.props.auth} />
-                    <Route exact path="/" component={Landing}/>
-                    <Route exact path="/surveys" component={Dashboard}/>
-                    <Route path="/surveys/new" component={SurveyNew}/>
+                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/surveys" component={Dashboard} />
+                    <Route path="/surveys/new" component={SurveyNew} />
                 </BrowserRouter>
             </div>
         );
